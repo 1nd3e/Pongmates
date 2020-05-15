@@ -11,6 +11,10 @@ import GameplayKit
 
 class EndScene: SKScene {
     
+    private var playerA: Player!
+    private var playerB: Player!
+    private var ball: Ball!
+    
     private var entities = Set<GKEntity>()
     
 }
@@ -20,8 +24,32 @@ class EndScene: SKScene {
 extension EndScene {
     
     override func didMove(to view: SKView) {
+        // Настраиваем параметры сцены игры
+        setupPhysics()
+        
+        // Размещаем элементы интерфейса
         configureRestartButton()
         configureQuitButton()
+        configurePlayerA()
+        configurePlayerB()
+        configureBall()
+        
+        // Запускаем мяч
+        ball.applyImpulse()
+    }
+    
+}
+
+// MARK: - Scene Configuration
+
+extension EndScene {
+    
+    private func setupPhysics() {
+        let physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsBody.friction = 0
+        physicsBody.restitution = 1
+        
+        self.physicsBody = physicsBody
     }
     
 }
@@ -94,6 +122,51 @@ extension EndScene {
                 view?.presentScene(sceneNode, transition: sceneTransition)
             }
         }
+    }
+    
+}
+
+// MARK: - Node Methods
+
+extension EndScene {
+    
+    private func configurePlayerA() {
+        let size = CGSize(width: 80, height: 16)
+        let color = SKColor(red: 0.33, green: 0.09, blue: 0.32, alpha: 1.00)
+        
+        playerA = Player(size: size, color: color)
+        
+        if let node = playerA.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.minY + 104)
+            node.zPosition = 0
+        }
+        
+        addEntity(playerA)
+    }
+    
+    private func configurePlayerB() {
+        let size = CGSize(width: 160, height: 16)
+        let color = SKColor(red: 0.22, green: 0.10, blue: 0.45, alpha: 1.00)
+        
+        playerB = Player(size: size, color: color)
+        
+        if let node = playerB.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.maxY - 104)
+            node.zPosition = 0
+        }
+        
+        addEntity(playerB)
+    }
+    
+    private func configureBall() {
+        ball = Ball(color: SKColor(red: 0.35, green: 0.28, blue: 0.45, alpha: 1.00))
+        
+        if let node = ball.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.midY)
+            node.zPosition = 0
+        }
+        
+        addEntity(ball)
     }
     
 }

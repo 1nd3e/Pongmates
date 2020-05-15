@@ -168,7 +168,7 @@ extension MultiplayerScene {
     }
     
     private func configureBall() {
-        ball = Ball()
+        ball = Ball(color: SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00))
         
         if let node = ball.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.midY)

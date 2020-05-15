@@ -13,13 +13,13 @@ class Ball: GKEntity {
     
     // MARK: - Initializers
     
-    override init() {
+    init(color: SKColor) {
         super.init()
         
         let node = NodeComponent()
         addComponent(node)
         
-        let shape = ShapeComponent(rectOf: CGSize(width: 16, height: 16), cornerRadius: 8, color: SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00))
+        let shape = ShapeComponent(rectOf: CGSize(width: 16, height: 16), cornerRadius: 8, color: color)
         addComponent(shape)
         
         let physicsBody = PhysicsBodyComponent(physicsBody: SKPhysicsBody(circleOfRadius: 8))
