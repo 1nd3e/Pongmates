@@ -221,6 +221,19 @@ extension MultiplayerScene {
         }
     }
     
+    private func finishMatch() {
+        if let scene = GKScene(fileNamed: "EndScene") {
+            if let sceneNode = scene.rootNode as? EndScene {
+                sceneNode.size = self.size
+                
+                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00), duration: 0.5)
+                sceneTransition.pausesOutgoingScene = false
+                
+                view?.presentScene(sceneNode, transition: sceneTransition)
+            }
+        }
+    }
+    
 }
 
 // MARK: - Entity Methods
@@ -278,7 +291,9 @@ extension MultiplayerScene: SKPhysicsContactDelegate {
             playerBScoreLabel.set(playerBScore)
             
             if playerBScore >= 15 {
-                // Здесь будет метод завершения игры
+                self.run(.wait(forDuration: 2.0)) {
+                    self.finishMatch()
+                }
             } else {
                 self.run(.wait(forDuration: 0.5)) {
                     self.replayMatch(winner: .playerB)
@@ -291,7 +306,9 @@ extension MultiplayerScene: SKPhysicsContactDelegate {
             playerAScoreLabel.set(playerAScore)
             
             if playerAScore >= 15 {
-                // Здесь будет метод завершения игры
+                self.run(.wait(forDuration: 2.0)) {
+                    self.finishMatch()
+                }
             } else {
                 self.run(.wait(forDuration: 0.5)) {
                     self.replayMatch(winner: .playerA)
