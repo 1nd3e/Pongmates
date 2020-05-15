@@ -42,4 +42,30 @@ class Ball: GKEntity {
         }
     }
     
+    func applyImpulse(_ impulse: CGVector) {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            let fadeAlpha = SKAction.fadeAlpha(to: 1, duration: 0.1)
+            let applyImpulse = SKAction.applyImpulse(impulse, duration: 0.5)
+            let sequence = SKAction.sequence([fadeAlpha, applyImpulse])
+            
+            node.run(sequence)
+        }
+    }
+    
+    func resetVelocity() {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            let fadeAlpha = SKAction.fadeAlpha(to: 0, duration: 0.1)
+            let resetVelocity = SKAction.run { node.physicsBody?.velocity = .zero }
+            let sequence = SKAction.sequence([fadeAlpha, resetVelocity])
+            
+            node.run(sequence)
+        }
+    }
+    
+    func resetPosition(to position: CGPoint) {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            node.position = position
+        }
+    }
+    
 }

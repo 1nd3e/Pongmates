@@ -30,7 +30,7 @@ extension MultiplayerScene {
     
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
-        addPhysicsEdges()
+        setupPhysics()
         
         // Размещаем элементы игры
         configurePlayerA()
@@ -51,17 +51,18 @@ extension MultiplayerScene {
 
 extension MultiplayerScene {
     
-    private func addPhysicsEdges() {
+    private func setupPhysics() {
         let physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
         physicsBody.friction = 0
         physicsBody.restitution = 1
         
         self.physicsBody = physicsBody
+        self.physicsWorld.contactDelegate = self
     }
     
 }
 
-// MARK: - Gameplay Methods
+// MARK: - Node Methods
 
 extension MultiplayerScene {
     
@@ -185,6 +186,43 @@ extension MultiplayerScene {
     
 }
 
+// MARK: - Gameplay Methods
+
+extension MultiplayerScene {
+    
+    private func replayMatch(winner: PlayerType) {
+        switch winner {
+        case .playerA:
+            if let node = playerA.component(ofType: NodeComponent.self)?.node {
+                ball.resetPosition(to: CGPoint(x: node.position.x, y: node.position.y + 40))
+                
+                switch node.position.x {
+                case frame.minX...0:
+                    ball.applyImpulse(CGVector(dx: 5, dy: 5))
+                case 0...frame.maxX:
+                    ball.applyImpulse(CGVector(dx: -5, dy: 5))
+                default:
+                    break
+                }
+            }
+        case .playerB:
+            if let node = playerB.component(ofType: NodeComponent.self)?.node {
+                ball.resetPosition(to: CGPoint(x: node.position.x, y: node.position.y - 40))
+                
+                switch node.position.x {
+                case 0...frame.maxX:
+                    ball.applyImpulse(CGVector(dx: -5, dy: -5))
+                case frame.minX...0:
+                    ball.applyImpulse(CGVector(dx: 5, dy: -5))
+                default:
+                    break
+                }
+            }
+        }
+    }
+    
+}
+
 // MARK: - Entity Methods
 
 extension MultiplayerScene {
@@ -224,3 +262,45 @@ extension MultiplayerScene {
     }
     
 }
+
+extension MultiplayerScene: SKPhysicsContactDelegate {
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        let bodyA = contact.bodyA.categoryBitMask
+        let bodyB = contact.bodyB.categoryBitMask
+        
+        let playerAHoleBody = BitMaskCategory.playerAHole
+        let playerBHoleBody = BitMaskCategory.playerBHole
+        let ballBody = BitMaskCategory.ball
+        
+        if bodyA == playerAHoleBody && bodyB == ballBody || bodyA == ballBody && bodyB == playerAHoleBody {
+            playerBScore += 1
+            playerBScoreLabel.set(playerBScore)
+            
+            if playerBScore >= 15 {
+                // Здесь будет метод завершения игры
+            } else {
+                self.run(.wait(forDuration: 0.5)) {
+                    self.replayMatch(winner: .playerB)
+                }
+            }
+            
+            ball.resetVelocity()
+        } else if bodyA == playerBHoleBody && bodyB == ballBody || bodyA == ballBody && bodyB == playerBHoleBody {
+            playerAScore += 1
+            playerAScoreLabel.set(playerAScore)
+            
+            if playerAScore >= 15 {
+                // Здесь будет метод завершения игры
+            } else {
+                self.run(.wait(forDuration: 0.5)) {
+                    self.replayMatch(winner: .playerA)
+                }
+            }
+            
+            ball.resetVelocity()
+        }
+    }
+    
+}
+

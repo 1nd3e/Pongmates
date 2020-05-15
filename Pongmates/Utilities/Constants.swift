@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum PlayerType {
+    case playerA, playerB
+}
+
 struct BitMaskCategory {
     
     static let playerA: UInt32 = 1
