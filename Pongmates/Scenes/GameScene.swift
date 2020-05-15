@@ -1,5 +1,5 @@
 //
-//  MultiplayerScene.swift
+//  GameScene.swift
 //  Pongmates
 //
 //  Created by Vladislav Kulikov on 15.05.2020.
@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class MultiplayerScene: SKScene {
+class GameScene: SKScene {
     
     private var playerA: Player!
     private var playerAScoreLabel: Label!
@@ -26,7 +26,7 @@ class MultiplayerScene: SKScene {
 
 // MARK: - Scene Events
 
-extension MultiplayerScene {
+extension GameScene {
     
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
@@ -49,7 +49,7 @@ extension MultiplayerScene {
 
 // MARK: - Scene Configuration
 
-extension MultiplayerScene {
+extension GameScene {
     
     private func setupPhysics() {
         let physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
@@ -64,7 +64,7 @@ extension MultiplayerScene {
 
 // MARK: - Node Methods
 
-extension MultiplayerScene {
+extension GameScene {
     
     private func configurePlayerA() {
         let size = CGSize(width: 80, height: 16)
@@ -188,7 +188,7 @@ extension MultiplayerScene {
 
 // MARK: - Gameplay Methods
 
-extension MultiplayerScene {
+extension GameScene {
     
     private func replayMatch(winner: PlayerType) {
         switch winner {
@@ -238,7 +238,7 @@ extension MultiplayerScene {
 
 // MARK: - Entity Methods
 
-extension MultiplayerScene {
+extension GameScene {
     
     private func addEntity(_ entity: GKEntity) {
         entities.insert(entity)
@@ -260,7 +260,7 @@ extension MultiplayerScene {
 
 // MARK: - Touch Events
 
-extension MultiplayerScene {
+extension GameScene {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
@@ -276,7 +276,7 @@ extension MultiplayerScene {
     
 }
 
-extension MultiplayerScene: SKPhysicsContactDelegate {
+extension GameScene: SKPhysicsContactDelegate {
     
     func didBegin(_ contact: SKPhysicsContact) {
         let bodyA = contact.bodyA.categoryBitMask

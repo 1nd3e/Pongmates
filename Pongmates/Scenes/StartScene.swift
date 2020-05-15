@@ -80,8 +80,8 @@ extension StartScene {
     }
     
     private func playButtonPressed() {
-        if let scene = GKScene(fileNamed: "MultiplayerScene") {
-            if let sceneNode = scene.rootNode as? MultiplayerScene {
+        if let scene = GKScene(fileNamed: "GameScene") {
+            if let sceneNode = scene.rootNode as? GameScene {
                 sceneNode.size = self.size
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)

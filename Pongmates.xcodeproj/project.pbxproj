@@ -21,8 +21,8 @@
 		78F7822C246ED60100767DCF /* LabelComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7822B246ED60100767DCF /* LabelComponent.swift */; };
 		78F7822E246ED69E00767DCF /* ShapeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7822D246ED69E00767DCF /* ShapeComponent.swift */; };
 		78F78231246EDC8600767DCF /* SF-Pro-Text-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F78230246EDC8600767DCF /* SF-Pro-Text-Medium.otf */; };
-		78F78233246EE17800767DCF /* MultiplayerScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78F78232246EE17800767DCF /* MultiplayerScene.sks */; };
-		78F78235246EE18400767DCF /* MultiplayerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78234246EE18400767DCF /* MultiplayerScene.swift */; };
+		78F78233246EE17800767DCF /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78F78232246EE17800767DCF /* GameScene.sks */; };
+		78F78235246EE18400767DCF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78234246EE18400767DCF /* GameScene.swift */; };
 		78F78237246EE22300767DCF /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78236246EE22300767DCF /* Player.swift */; };
 		78F78239246EE27900767DCF /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78238246EE27900767DCF /* PhysicsBodyComponent.swift */; };
 		78F7823B246EE93A00767DCF /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7823A246EE93A00767DCF /* Ball.swift */; };
@@ -49,8 +49,8 @@
 		78F7822B246ED60100767DCF /* LabelComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelComponent.swift; sourceTree = "<group>"; };
 		78F7822D246ED69E00767DCF /* ShapeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeComponent.swift; sourceTree = "<group>"; };
 		78F78230246EDC8600767DCF /* SF-Pro-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Medium.otf"; sourceTree = "<group>"; };
-		78F78232246EE17800767DCF /* MultiplayerScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MultiplayerScene.sks; sourceTree = "<group>"; };
-		78F78234246EE18400767DCF /* MultiplayerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerScene.swift; sourceTree = "<group>"; };
+		78F78232246EE17800767DCF /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		78F78234246EE18400767DCF /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		78F78236246EE22300767DCF /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		78F78238246EE27900767DCF /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		78F7823A246EE93A00767DCF /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 			children = (
 				78DFDAB9246C5B3A00400F8C /* StartScene.sks */,
 				78DFDABD246C5B3A00400F8C /* StartScene.swift */,
-				78F78232246EE17800767DCF /* MultiplayerScene.sks */,
-				78F78234246EE18400767DCF /* MultiplayerScene.swift */,
+				78F78232246EE17800767DCF /* GameScene.sks */,
+				78F78234246EE18400767DCF /* GameScene.swift */,
 				78BC39A2246F3A2000958D3E /* EndScene.sks */,
 				78BC39A4246F3A4F00958D3E /* EndScene.swift */,
 			);
@@ -261,7 +261,7 @@
 				78DFDABA246C5B3A00400F8C /* StartScene.sks in Resources */,
 				78F7823F246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf in Resources */,
 				78DFDAC5246C5B3C00400F8C /* Assets.xcassets in Resources */,
-				78F78233246EE17800767DCF /* MultiplayerScene.sks in Resources */,
+				78F78233246EE17800767DCF /* GameScene.sks in Resources */,
 				78F78231246EDC8600767DCF /* SF-Pro-Text-Medium.otf in Resources */,
 				78DFDAC8246C5B3C00400F8C /* LaunchScreen.storyboard in Resources */,
 			);
@@ -288,7 +288,7 @@
 				78F7822E246ED69E00767DCF /* ShapeComponent.swift in Sources */,
 				78DFDAB8246C5B3A00400F8C /* AppDelegate.swift in Sources */,
 				783C9BB6246ED0E400713072 /* NodeComponent.swift in Sources */,
-				78F78235246EE18400767DCF /* MultiplayerScene.swift in Sources */,
+				78F78235246EE18400767DCF /* GameScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
