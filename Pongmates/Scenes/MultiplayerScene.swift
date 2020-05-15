@@ -12,8 +12,13 @@ import GameplayKit
 class MultiplayerScene: SKScene {
     
     private var playerA: Player!
+    private var playerAScoreLabel: Label!
     private var playerB: Player!
+    private var playerBScoreLabel: Label!
     private var ball: Ball!
+    
+    private var playerAScore = 0
+    private var playerBScore = 0
     
     private var entities = Set<GKEntity>()
     
@@ -29,7 +34,9 @@ extension MultiplayerScene {
         
         // Размещаем элементы игры
         configurePlayerA()
+        configurePlayerAScoreLabel()
         configurePlayerB()
+        configurePlayerBScoreLabel()
         configureBall()
         
         // Запускаем мяч
@@ -70,6 +77,22 @@ extension MultiplayerScene {
         addEntity(playerA)
     }
     
+    private func configurePlayerAScoreLabel() {
+        playerAScoreLabel = Label(fontName: "SFProDisplay-Ultralight", fontSize: 80)
+        
+        if let node = playerAScoreLabel.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.midY - 48)
+            node.zPosition = 0
+            
+            if let labelNode = playerAScoreLabel.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = String(playerAScore)
+                labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.25)
+            }
+        }
+        
+        addEntity(playerAScoreLabel)
+    }
+    
     private func configurePlayerB() {
         let size = CGSize(width: 160, height: 16)
         let color = SKColor(red: 0.49, green: 0.30, blue: 1.00, alpha: 1.00)
@@ -82,6 +105,23 @@ extension MultiplayerScene {
         }
         
         addEntity(playerB)
+    }
+    
+    private func configurePlayerBScoreLabel() {
+        playerBScoreLabel = Label(fontName: "SFProDisplay-Ultralight", fontSize: 80)
+        
+        if let node = playerBScoreLabel.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.midY + 48)
+            node.zRotation = .pi
+            node.zPosition = 0
+            
+            if let labelNode = playerBScoreLabel.component(ofType: LabelComponent.self)?.node {
+                labelNode.text = String(playerBScore)
+                labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 0.25)
+            }
+        }
+        
+        addEntity(playerBScoreLabel)
     }
     
     private func configureBall() {
