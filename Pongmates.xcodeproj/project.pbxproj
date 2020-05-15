@@ -26,6 +26,8 @@
 		78F7823B246EE93A00767DCF /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7823A246EE93A00767DCF /* Ball.swift */; };
 		78F7823D246F056800767DCF /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F7823C246F056800767DCF /* Label.swift */; };
 		78F7823F246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F7823E246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf */; };
+		78F78241246F11EF00767DCF /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78240246F11EF00767DCF /* Hole.swift */; };
+		78F78243246F184900767DCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78242246F184900767DCF /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		78F7823A246EE93A00767DCF /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		78F7823C246F056800767DCF /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		78F7823E246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
+		78F78240246F11EF00767DCF /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
+		78F78242246F184900767DCF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,7 @@
 				783C9BB9246ED54000713072 /* UI */,
 				78F78236246EE22300767DCF /* Player.swift */,
 				78F7823A246EE93A00767DCF /* Ball.swift */,
+				78F78240246F11EF00767DCF /* Hole.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 		78DFDAD2246C5C7E00400F8C /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				78F78242246F184900767DCF /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -264,8 +270,10 @@
 				78F7823B246EE93A00767DCF /* Ball.swift in Sources */,
 				78F78237246EE22300767DCF /* Player.swift in Sources */,
 				78F7823D246F056800767DCF /* Label.swift in Sources */,
+				78F78243246F184900767DCF /* Constants.swift in Sources */,
 				783C9BB8246ED53C00713072 /* Button.swift in Sources */,
 				78DFDABE246C5B3A00400F8C /* StartScene.swift in Sources */,
+				78F78241246F11EF00767DCF /* Hole.swift in Sources */,
 				78F7822C246ED60100767DCF /* LabelComponent.swift in Sources */,
 				78DFDAC0246C5B3A00400F8C /* GameViewController.swift in Sources */,
 				78F78239246EE27900767DCF /* PhysicsBodyComponent.swift in Sources */,

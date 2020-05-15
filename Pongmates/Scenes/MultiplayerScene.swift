@@ -35,8 +35,10 @@ extension MultiplayerScene {
         // Размещаем элементы игры
         configurePlayerA()
         configurePlayerAScoreLabel()
+        configurePlayerAHole()
         configurePlayerB()
         configurePlayerBScoreLabel()
+        configurePlayerBHole()
         configureBall()
         
         // Запускаем мяч
@@ -72,6 +74,11 @@ extension MultiplayerScene {
         if let node = playerA.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.minY + 104)
             node.zPosition = 1
+            
+            if let physicsBody = playerA.component(ofType: PhysicsBodyComponent.self)?.physicsBody {
+                physicsBody.categoryBitMask = BitMaskCategory.playerA
+                physicsBody.collisionBitMask = BitMaskCategory.ball
+            }
         }
         
         addEntity(playerA)
@@ -93,6 +100,21 @@ extension MultiplayerScene {
         addEntity(playerAScoreLabel)
     }
     
+    private func configurePlayerAHole() {
+        let hole = Hole(size: CGSize(width: frame.width, height: 96))
+        
+        if let node = hole.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.minY + 48)
+            
+            if let physicsBody = hole.component(ofType: PhysicsBodyComponent.self)?.physicsBody {
+                physicsBody.categoryBitMask = BitMaskCategory.playerAHole
+                physicsBody.contactTestBitMask = BitMaskCategory.ball
+            }
+        }
+        
+        addEntity(hole)
+    }
+    
     private func configurePlayerB() {
         let size = CGSize(width: 160, height: 16)
         let color = SKColor(red: 0.49, green: 0.30, blue: 1.00, alpha: 1.00)
@@ -102,6 +124,11 @@ extension MultiplayerScene {
         if let node = playerB.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.maxY - 104)
             node.zPosition = 1
+            
+            if let physicsBody = playerB.component(ofType: PhysicsBodyComponent.self)?.physicsBody {
+                physicsBody.categoryBitMask = BitMaskCategory.playerB
+                physicsBody.collisionBitMask = BitMaskCategory.ball
+            }
         }
         
         addEntity(playerB)
@@ -124,12 +151,33 @@ extension MultiplayerScene {
         addEntity(playerBScoreLabel)
     }
     
+    private func configurePlayerBHole() {
+        let hole = Hole(size: CGSize(width: frame.width, height: 96))
+        
+        if let node = hole.component(ofType: NodeComponent.self)?.node {
+            node.position = CGPoint(x: frame.midX, y: frame.maxY - 48)
+            
+            if let physicsBody = hole.component(ofType: PhysicsBodyComponent.self)?.physicsBody {
+                physicsBody.categoryBitMask = BitMaskCategory.playerBHole
+                physicsBody.contactTestBitMask = BitMaskCategory.ball
+            }
+        }
+        
+        addEntity(hole)
+    }
+    
     private func configureBall() {
         ball = Ball()
         
         if let node = ball.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.midY)
             node.zPosition = 1
+            
+            if let physicsBody = ball.component(ofType: PhysicsBodyComponent.self)?.physicsBody {
+                physicsBody.categoryBitMask = BitMaskCategory.ball
+                physicsBody.collisionBitMask = BitMaskCategory.playerA | BitMaskCategory.playerB
+                physicsBody.contactTestBitMask = BitMaskCategory.playerAHole | BitMaskCategory.playerBHole
+            }
         }
         
         addEntity(ball)
