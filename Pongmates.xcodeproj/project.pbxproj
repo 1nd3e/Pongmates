@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		783C9BB6246ED0E400713072 /* NodeComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9BB5246ED0E400713072 /* NodeComponent.swift */; };
 		783C9BB8246ED53C00713072 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9BB7246ED53C00713072 /* Button.swift */; };
+		78BC39A3246F3A2000958D3E /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A2246F3A2000958D3E /* EndScene.sks */; };
+		78BC39A5246F3A4F00958D3E /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39A4246F3A4F00958D3E /* EndScene.swift */; };
 		78DFDAB8246C5B3A00400F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFDAB7246C5B3A00400F8C /* AppDelegate.swift */; };
 		78DFDABA246C5B3A00400F8C /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78DFDAB9246C5B3A00400F8C /* StartScene.sks */; };
 		78DFDABE246C5B3A00400F8C /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFDABD246C5B3A00400F8C /* StartScene.swift */; };
@@ -33,6 +35,8 @@
 /* Begin PBXFileReference section */
 		783C9BB5246ED0E400713072 /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		783C9BB7246ED53C00713072 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		78BC39A2246F3A2000958D3E /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
+		78BC39A4246F3A4F00958D3E /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 		78DFDAB4246C5B3A00400F8C /* Pongmates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pongmates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DFDAB7246C5B3A00400F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78DFDAB9246C5B3A00400F8C /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 				78DFDABD246C5B3A00400F8C /* StartScene.swift */,
 				78F78232246EE17800767DCF /* MultiplayerScene.sks */,
 				78F78234246EE18400767DCF /* MultiplayerScene.swift */,
+				78BC39A2246F3A2000958D3E /* EndScene.sks */,
+				78BC39A4246F3A4F00958D3E /* EndScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78BC39A3246F3A2000958D3E /* EndScene.sks in Resources */,
 				78DFDAC3246C5B3A00400F8C /* Main.storyboard in Resources */,
 				78DFDABA246C5B3A00400F8C /* StartScene.sks in Resources */,
 				78F7823F246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf in Resources */,
@@ -276,6 +283,7 @@
 				78F78241246F11EF00767DCF /* Hole.swift in Sources */,
 				78F7822C246ED60100767DCF /* LabelComponent.swift in Sources */,
 				78DFDAC0246C5B3A00400F8C /* GameViewController.swift in Sources */,
+				78BC39A5246F3A4F00958D3E /* EndScene.swift in Sources */,
 				78F78239246EE27900767DCF /* PhysicsBodyComponent.swift in Sources */,
 				78F7822E246ED69E00767DCF /* ShapeComponent.swift in Sources */,
 				78DFDAB8246C5B3A00400F8C /* AppDelegate.swift in Sources */,
