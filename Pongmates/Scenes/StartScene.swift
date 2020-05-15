@@ -45,7 +45,18 @@ extension StartScene {
         self.addEntity(button)
     }
     
-    private func playButtonPressed() {}
+    private func playButtonPressed() {
+        if let scene = GKScene(fileNamed: "MultiplayerScene") {
+            if let sceneNode = scene.rootNode as? MultiplayerScene {
+                sceneNode.size = self.size
+                
+                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
+                sceneTransition.pausesOutgoingScene = false
+                
+                view?.presentScene(sceneNode, transition: sceneTransition)
+            }
+        }
+    }
     
     private func configurePurchaseButton() {
         let size = CGSize(width: 224, height: 48)
