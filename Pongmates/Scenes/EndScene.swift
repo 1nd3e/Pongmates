@@ -90,6 +90,7 @@ extension EndScene {
         if let scene = GKScene(fileNamed: "GameScene") {
             if let sceneNode = scene.rootNode as? GameScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 sceneNode.playerARacket = playerARacket
                 sceneNode.playerBRacket = playerBRacket
@@ -126,6 +127,7 @@ extension EndScene {
         if let scene = GKScene(fileNamed: "StartScene") {
             if let sceneNode = scene.rootNode as? StartScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false

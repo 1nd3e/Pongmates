@@ -96,6 +96,7 @@ extension StartScene {
         if let scene = GKScene(fileNamed: "PickerAScene") {
             if let sceneNode = scene.rootNode as? PickerAScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false

@@ -204,7 +204,6 @@
 				78DFDAD0246C5C6800400F8C /* Scenes */,
 				78DFDAD1246C5C7300400F8C /* Controllers */,
 				78DFDAD2246C5C7E00400F8C /* Utilities */,
-				78DFDAD4246C5C9F00400F8C /* Extensions */,
 				78DFDAD3246C5C9400400F8C /* Supporting Files */,
 			);
 			path = Pongmates;
@@ -270,13 +269,6 @@
 				78DFDAC9246C5B3C00400F8C /* Info.plist */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		78DFDAD4246C5C9F00400F8C /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		78F7822F246EDC5C00767DCF /* Fonts */ = {

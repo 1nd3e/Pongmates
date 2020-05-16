@@ -274,6 +274,7 @@ extension GameScene {
         if let scene = GKScene(fileNamed: "EndScene") {
             if let sceneNode = scene.rootNode as? EndScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 sceneNode.playerARacket = playerARacket
                 sceneNode.playerBRacket = playerBRacket

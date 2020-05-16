@@ -20,7 +20,10 @@ class GameViewController: UIViewController {
         if let scene = GKScene(fileNamed: "StartScene") {
             if let sceneNode = scene.rootNode as? StartScene {
                 if let view = self.view as! SKView? {
-                    sceneNode.size = view.bounds.size
+                    let smallScreen = Screen.size.height == 1136 ? true : false
+                    
+                    sceneNode.size = smallScreen ? CGSize(width: 414, height: 736) : view.bounds.size
+                    sceneNode.scaleMode = .aspectFill
                     
                     view.presentScene(sceneNode)
                     view.ignoresSiblingOrder = true

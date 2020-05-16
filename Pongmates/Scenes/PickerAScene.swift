@@ -109,6 +109,7 @@ extension PickerAScene {
         if let scene = GKScene(fileNamed: "StartScene") {
             if let sceneNode = scene.rootNode as? StartScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false
@@ -175,6 +176,8 @@ extension PickerAScene {
         if let scene = GKScene(fileNamed: "PickerBScene") {
             if let sceneNode = scene.rootNode as? PickerBScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
+                
                 sceneNode.selectedRacketA = .nimbler
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
@@ -242,6 +245,8 @@ extension PickerAScene {
             if let scene = GKScene(fileNamed: "PickerBScene") {
                 if let sceneNode = scene.rootNode as? PickerBScene {
                     sceneNode.size = self.size
+                    sceneNode.scaleMode = .aspectFill
+                    
                     sceneNode.selectedRacketA = .keeper
                     
                     let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
@@ -319,6 +324,8 @@ extension PickerAScene {
             if let scene = GKScene(fileNamed: "PickerBScene") {
                 if let sceneNode = scene.rootNode as? PickerBScene {
                     sceneNode.size = self.size
+                    sceneNode.scaleMode = .aspectFill
+                    
                     sceneNode.selectedRacketA = .winger
                     
                     let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
@@ -389,6 +396,8 @@ extension PickerAScene: AdMobDelegate {
         if let scene = GKScene(fileNamed: "PickerBScene") {
             if let sceneNode = scene.rootNode as? PickerBScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
+                
                 sceneNode.selectedRacketA = racket
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)

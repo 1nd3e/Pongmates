@@ -114,6 +114,7 @@ extension PickerBScene {
         if let scene = GKScene(fileNamed: "PickerAScene") {
             if let sceneNode = scene.rootNode as? PickerAScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false
@@ -182,6 +183,7 @@ extension PickerBScene {
         if let scene = GKScene(fileNamed: "GameScene") {
             if let sceneNode = scene.rootNode as? GameScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 sceneNode.playerARacket = selectedRacketA
                 sceneNode.playerBRacket = .nimbler
@@ -253,6 +255,7 @@ extension PickerBScene {
             if let scene = GKScene(fileNamed: "GameScene") {
                 if let sceneNode = scene.rootNode as? GameScene {
                     sceneNode.size = self.size
+                    sceneNode.scaleMode = .aspectFill
                     
                     sceneNode.playerARacket = selectedRacketA
                     sceneNode.playerBRacket = .keeper
@@ -334,6 +337,7 @@ extension PickerBScene {
             if let scene = GKScene(fileNamed: "GameScene") {
                 if let sceneNode = scene.rootNode as? GameScene {
                     sceneNode.size = self.size
+                    sceneNode.scaleMode = .aspectFill
                     
                     sceneNode.playerARacket = selectedRacketA
                     sceneNode.playerBRacket = .winger
@@ -406,6 +410,7 @@ extension PickerBScene: AdMobDelegate {
         if let scene = GKScene(fileNamed: "GameScene") {
             if let sceneNode = scene.rootNode as? GameScene {
                 sceneNode.size = self.size
+                sceneNode.scaleMode = .aspectFill
                 
                 sceneNode.playerARacket = selectedRacketA
                 sceneNode.playerBRacket = racket
