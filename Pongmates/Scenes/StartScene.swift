@@ -84,7 +84,7 @@ extension StartScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Let's Play"
+                labelNode.text = NSLocalizedString("Let’s Play", comment: "Start a game")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -118,7 +118,7 @@ extension StartScene {
         }
         
         if let labelNode = purchaseButton.component(ofType: LabelComponent.self)?.node {
-            labelNode.text = "Remove Ads"
+            labelNode.text = NSLocalizedString("Remove Ads", comment: "Request a purchase")
             labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
             if adsDisabled {
@@ -157,7 +157,7 @@ extension StartScene {
         }
         
         if let labelNode = restoreButton.component(ofType: LabelComponent.self)?.node {
-            labelNode.text = "Restore Purchases"
+            labelNode.text = NSLocalizedString("Restore Purchases", comment: "Request to restore purchases")
             labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
             if adsDisabled {

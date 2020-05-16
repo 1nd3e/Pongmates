@@ -68,7 +68,7 @@ extension PickerAScene {
             node.position = CGPoint(x: frame.midX, y: frame.maxY - 72)
             
             if let labelNode = label.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Player 1"
+                labelNode.text = NSLocalizedString("Player 1", comment: "First player label")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -83,7 +83,7 @@ extension PickerAScene {
             node.position = CGPoint(x: frame.midX, y: frame.maxY - 96)
             
             if let labelNode = label.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Pick your Racket"
+                labelNode.text = NSLocalizedString("Pick your Racket", comment: "Pick your racket label")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -163,7 +163,7 @@ extension PickerAScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Pick"
+                labelNode.text = NSLocalizedString("Pick", comment: "Pick a racket")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -228,9 +228,9 @@ extension PickerAScene {
             labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             
             if adsDisabled {
-                labelNode.text = "Pick"
+                labelNode.text = NSLocalizedString("Pick", comment: "Pick a racket")
             } else {
-                labelNode.text = "Watch Ads"
+                labelNode.text = NSLocalizedString("Watch Ads", comment: "Watch ads and pick a racket")
             }
         }
         
@@ -305,9 +305,9 @@ extension PickerAScene {
             labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
             if adsDisabled {
-                labelNode.text = "Pick"
+                labelNode.text = NSLocalizedString("Pick", comment: "Pick a racket")
             } else {
-                labelNode.text = "Watch Ads"
+                labelNode.text = NSLocalizedString("Watch Ads", comment: "Watch ads and pick a racket")
             }
         }
         

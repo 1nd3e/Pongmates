@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Pongmates
+
+  Created by Vladislav Kulikov on 16.05.2020.
+  Copyright © 2020 Vladislav Kulikov. All rights reserved.
+*/
+
+"Let’s Play" = "Играть";
+"Remove Ads" = "Отключить рекламу";
+"Restore Purchases" = "Восст. покупки";
+"Player 1" = "Игрок 1";
+"Player 2" = "Игрок 2";
+"Pick your Racket" = "Выберите ракетку";
+"Pick" = "Выбрать";
+"Watch Ads" = "Смотреть рекламу";
+"Restart" = "Переиграть";
+"Quit" = "Выйти в меню";

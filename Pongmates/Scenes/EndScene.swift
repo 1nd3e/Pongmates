@@ -78,7 +78,7 @@ extension EndScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Restart"
+                labelNode.text = NSLocalizedString("Restart", comment: "Restart the current game")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -114,7 +114,7 @@ extension EndScene {
             node.zPosition = 1
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Quit"
+                labelNode.text = NSLocalizedString("Quit", comment: "Quit to main menu")
                 labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             }
         }

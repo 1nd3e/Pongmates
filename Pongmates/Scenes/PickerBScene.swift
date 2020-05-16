@@ -71,7 +71,7 @@ extension PickerBScene {
             node.zRotation = .pi
             
             if let labelNode = label.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Player 2"
+                labelNode.text = NSLocalizedString("Player 2", comment: "Second player label")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -87,7 +87,7 @@ extension PickerBScene {
             node.zRotation = .pi
             
             if let labelNode = label.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Pick your Racket"
+                labelNode.text = NSLocalizedString("Pick your Racket", comment: "Pick your racket label")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -170,7 +170,7 @@ extension PickerBScene {
             node.zRotation = .pi
             
             if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Pick"
+                labelNode.text = NSLocalizedString("Pick", comment: "Pick a racket")
                 labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
@@ -239,9 +239,9 @@ extension PickerBScene {
             labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             
             if adsDisabled {
-                labelNode.text = "Pick"
+                labelNode.text = NSLocalizedString("Pick", comment: "Pick a racket")
             } else {
-                labelNode.text = "Watch Ads"
+                labelNode.text = NSLocalizedString("Watch Ads", comment: "Watch ads and pick a racket")
             }
         }
         
@@ -320,9 +320,9 @@ extension PickerBScene {
             labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
             if adsDisabled {
-                labelNode.text = "Pick"
+                labelNode.text = NSLocalizedString("Pick", comment: "Pick a racket")
             } else {
-                labelNode.text = "Watch Ads"
+                labelNode.text = NSLocalizedString("Watch Ads", comment: "Watch ads and pick a racket")
             }
         }
         
