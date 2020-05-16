@@ -35,9 +35,12 @@
 		78F7823F246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78F7823E246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf */; };
 		78F78241246F11EF00767DCF /* Hole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78240246F11EF00767DCF /* Hole.swift */; };
 		78F78243246F184900767DCF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F78242246F184900767DCF /* Constants.swift */; };
+		BE45811BCF1FB2B9E53A0933 /* Pods_Pongmates.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B4600635ACAB49B253FD9F /* Pods_Pongmates.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52B4600635ACAB49B253FD9F /* Pods_Pongmates.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pongmates.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58DCF2EB9E7AB144E695092A /* Pods-Pongmates.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pongmates.release.xcconfig"; path = "Target Support Files/Pods-Pongmates/Pods-Pongmates.release.xcconfig"; sourceTree = "<group>"; };
 		783C9BB5246ED0E400713072 /* NodeComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeComponent.swift; sourceTree = "<group>"; };
 		783C9BB7246ED53C00713072 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		78BC39A2246F3A2000958D3E /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		78F7823E246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
 		78F78240246F11EF00767DCF /* Hole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hole.swift; sourceTree = "<group>"; };
 		78F78242246F184900767DCF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		98FA261F8306C92053D21AFD /* Pods-Pongmates.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pongmates.debug.xcconfig"; path = "Target Support Files/Pods-Pongmates/Pods-Pongmates.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,12 +79,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE45811BCF1FB2B9E53A0933 /* Pods_Pongmates.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06198519A0D59A789C2BC51F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				52B4600635ACAB49B253FD9F /* Pods_Pongmates.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		783C9BB3246ED0C000713072 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,8 @@
 			children = (
 				78DFDAB6246C5B3A00400F8C /* Pongmates */,
 				78DFDAB5246C5B3A00400F8C /* Products */,
+				BCEB0B19A9D920F73D6B204A /* Pods */,
+				06198519A0D59A789C2BC51F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,6 +228,16 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		BCEB0B19A9D920F73D6B204A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				98FA261F8306C92053D21AFD /* Pods-Pongmates.debug.xcconfig */,
+				58DCF2EB9E7AB144E695092A /* Pods-Pongmates.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -220,9 +245,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78DFDACC246C5B3C00400F8C /* Build configuration list for PBXNativeTarget "Pongmates" */;
 			buildPhases = (
+				660B0722A0BAD48FD9FAF3AA /* [CP] Check Pods Manifest.lock */,
 				78DFDAB0246C5B3A00400F8C /* Sources */,
 				78DFDAB1246C5B3A00400F8C /* Frameworks */,
 				78DFDAB2246C5B3A00400F8C /* Resources */,
+				E7C678CEEA02FE62DF2137C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -285,6 +312,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		660B0722A0BAD48FD9FAF3AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Pongmates-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7C678CEEA02FE62DF2137C0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pongmates/Pods-Pongmates-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Pongmates/Pods-Pongmates-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Pongmates/Pods-Pongmates-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		78DFDAB0246C5B3A00400F8C /* Sources */ = {
@@ -450,6 +519,7 @@
 		};
 		78DFDACD246C5B3C00400F8C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98FA261F8306C92053D21AFD /* Pods-Pongmates.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -470,6 +540,7 @@
 		};
 		78DFDACE246C5B3C00400F8C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58DCF2EB9E7AB144E695092A /* Pods-Pongmates.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
