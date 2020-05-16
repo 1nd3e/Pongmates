@@ -13,6 +13,7 @@
 		787A3DDF2470161A00BDB58D /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A3DDE2470161A00BDB58D /* IAPService.swift */; };
 		787A3DE12470162C00BDB58D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787A3DE02470162C00BDB58D /* StoreKit.framework */; };
 		787A3DE32470180900BDB58D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A3DE22470180900BDB58D /* Defaults.swift */; };
+		787A3DE5247023BD00BDB58D /* SKReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A3DE4247023BD00BDB58D /* SKReview.swift */; };
 		78BC39A3246F3A2000958D3E /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A2246F3A2000958D3E /* EndScene.sks */; };
 		78BC39A5246F3A4F00958D3E /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39A4246F3A4F00958D3E /* EndScene.swift */; };
 		78BC39A7246F469F00958D3E /* PickerAScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A6246F469F00958D3E /* PickerAScene.sks */; };
@@ -51,6 +52,7 @@
 		787A3DDE2470161A00BDB58D /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		787A3DE02470162C00BDB58D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		787A3DE22470180900BDB58D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
+		787A3DE4247023BD00BDB58D /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
 		78BC39A2246F3A2000958D3E /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
 		78BC39A4246F3A4F00958D3E /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 		78BC39A6246F469F00958D3E /* PickerAScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PickerAScene.sks; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				787A3DDC24700C6D00BDB58D /* AdMob.swift */,
 				787A3DDE2470161A00BDB58D /* IAPService.swift */,
+				787A3DE4247023BD00BDB58D /* SKReview.swift */,
 				787A3DE22470180900BDB58D /* Defaults.swift */,
 				78F78242246F184900767DCF /* Constants.swift */,
 			);
@@ -379,6 +382,7 @@
 				783C9BB8246ED53C00713072 /* Button.swift in Sources */,
 				78DFDABE246C5B3A00400F8C /* StartScene.swift in Sources */,
 				787A3DDF2470161A00BDB58D /* IAPService.swift in Sources */,
+				787A3DE5247023BD00BDB58D /* SKReview.swift in Sources */,
 				78F78241246F11EF00767DCF /* Hole.swift in Sources */,
 				78F7822C246ED60100767DCF /* LabelComponent.swift in Sources */,
 				78DFDAC0246C5B3A00400F8C /* GameViewController.swift in Sources */,

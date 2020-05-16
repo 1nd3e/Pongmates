@@ -41,6 +41,9 @@ extension EndScene {
         
         // Запускаем мяч
         ball.applyImpulse()
+        
+        // Пробуем отправить запрос оценки игры
+        SKReview.shared.requestReviewIfAppropriate()
     }
     
 }

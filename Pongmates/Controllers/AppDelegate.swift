@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AdMob.shared.start()
         IAPService.shared.addObserver()
         
+        Defaults.shared.applicationLaunches += 1
+        
         return true
     }
     
