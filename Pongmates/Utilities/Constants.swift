@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Racket {
+enum RacketType {
     case nimbler, keeper, winger
 }
 

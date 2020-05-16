@@ -11,8 +11,8 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var playerARacket: Racket!
-    var playerBRacket: Racket!
+    var playerARacket: RacketType!
+    var playerBRacket: RacketType!
     
     private var playerA: Player!
     private var playerAScoreLabel: Label!
@@ -65,7 +65,7 @@ extension GameScene {
     
 }
 
-// MARK: - Node Methods
+// MARK: - Gameplay Entities
 
 extension GameScene {
     
@@ -360,6 +360,8 @@ extension GameScene {
     }
     
 }
+
+// MARK: - SKPhysicsContactDelegate
 
 extension GameScene: SKPhysicsContactDelegate {
     

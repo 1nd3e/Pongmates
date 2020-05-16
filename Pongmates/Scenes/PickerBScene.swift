@@ -11,8 +11,8 @@ import GameplayKit
 
 class PickerBScene: SKScene {
     
-    var selectedRacketA: Racket!
-    var selectedRacketB: Racket!
+    var selectedRacketA: RacketType!
+    var selectedRacketB: RacketType!
     
     private var racketA: Player!
     private var racketB: Player!
@@ -30,9 +30,9 @@ extension PickerBScene {
         // Размещаем элементы интерфейса
         configureTitleLabel()
         configureSubtitleLabel()
-        configureBackButton()
+        configureRevertButton()
         
-        // Размещаем игровые элементы
+        // Размещаем ракетки
         configureRacketA()
         configureRacketAButton()
         configureRacketB()
@@ -40,7 +40,7 @@ extension PickerBScene {
         configureRacketC()
         configureRacketCButton()
         
-        // Запускаем анимацию
+        // Запускаем анимации ракеток
         animateRacketA()
         animateRacketB()
         animateRacketC()
@@ -84,12 +84,12 @@ extension PickerBScene {
         addEntity(label)
     }
     
-    private func configureBackButton() {
-        let texture = SKTexture(imageNamed: "ic-ui-back")
+    private func configureRevertButton() {
+        let texture = SKTexture(imageNamed: "ic-arrow-back")
         let size = CGSize(width: 48, height: 48)
         
         let button = Button(texture: texture, size: size)
-        button.name = "Back"
+        button.name = "Revert"
         
         if let node = button.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.maxY - 72)
@@ -99,7 +99,7 @@ extension PickerBScene {
         addEntity(button)
     }
     
-    private func backButtonPressed() {
+    private func revertButtonPressed() {
         if let scene = GKScene(fileNamed: "PickerAScene") {
             if let sceneNode = scene.rootNode as? PickerAScene {
                 sceneNode.size = self.size
@@ -111,6 +111,12 @@ extension PickerBScene {
             }
         }
     }
+    
+}
+
+// MARK: - Racket Entities
+
+extension PickerBScene {
     
     private func configureRacketA() {
         let size = CGSize(width: 80, height: 16)
@@ -129,9 +135,8 @@ extension PickerBScene {
     
     private func animateRacketA() {
         let moveToMaxX = SKAction.moveTo(x: frame.midX - 112, duration: 0.25)
-        let moveToMinX = SKAction.moveTo(x: frame.midX + 112, duration: 0.25)
-        
         moveToMaxX.timingMode = .easeInEaseOut
+        let moveToMinX = SKAction.moveTo(x: frame.midX + 112, duration: 0.25)
         moveToMinX.timingMode = .easeInEaseOut
         
         let sequence = SKAction.sequence([moveToMaxX, moveToMinX])
@@ -197,9 +202,8 @@ extension PickerBScene {
     
     private func animateRacketB() {
         let moveToMinX = SKAction.moveTo(x: frame.midX + 112, duration: 0.65)
-        let moveToMaxX = SKAction.moveTo(x: frame.midX - 112, duration: 0.65)
-        
         moveToMinX.timingMode = .easeInEaseOut
+        let moveToMaxX = SKAction.moveTo(x: frame.midX - 112, duration: 0.65)
         moveToMaxX.timingMode = .easeInEaseOut
         
         let sequence = SKAction.sequence([moveToMinX, moveToMaxX])
@@ -264,15 +268,17 @@ extension PickerBScene {
     }
     
     private func animateRacketC() {
-        let wait = SKAction.wait(forDuration: 0.125)
-        
         let moveToMaxX = SKAction.moveTo(x: frame.midX - 112, duration: 0.35)
         moveToMaxX.timingMode = .easeInEaseOut
         let moveToMinX = SKAction.moveTo(x: frame.midX + 112, duration: 0.35)
         moveToMinX.timingMode = .easeInEaseOut
         
+        let wait = SKAction.wait(forDuration: 0.125)
+        
         let rotateToLT = SKAction.rotate(byAngle: -CGFloat.pi, duration: 0.125)
+        rotateToLT.timingMode = .easeInEaseOut
         let rotateToRT = SKAction.rotate(byAngle: CGFloat.pi, duration: 0.125)
+        rotateToRT.timingMode = .easeInEaseOut
         
         let sequence = SKAction.sequence([moveToMaxX, wait, rotateToLT, wait, moveToMinX, wait, rotateToRT, wait])
         
@@ -360,8 +366,8 @@ extension PickerBScene {
                     racketBButtonPressed()
                 } else if button.name == "Racket C" {
                     racketCButtonPressed()
-                } else if button.name == "Back" {
-                    backButtonPressed()
+                } else if button.name == "Revert" {
+                    revertButtonPressed()
                 }
             }
         }

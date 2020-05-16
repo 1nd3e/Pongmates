@@ -11,8 +11,8 @@ import GameplayKit
 
 class EndScene: SKScene {
     
-    var playerARacket: Racket!
-    var playerBRacket: Racket!
+    var playerARacket: RacketType!
+    var playerBRacket: RacketType!
     
     private var playerA: Player!
     private var playerB: Player!
@@ -33,6 +33,8 @@ extension EndScene {
         // Размещаем элементы интерфейса
         configureRestartButton()
         configureQuitButton()
+        
+        // Размещаем дополнительные элементы окружения
         configurePlayerA()
         configurePlayerB()
         configureBall()
@@ -78,7 +80,7 @@ extension EndScene {
             }
         }
         
-        self.addEntity(button)
+        addEntity(button)
     }
     
     private func restartButtonPressed() {
@@ -114,7 +116,7 @@ extension EndScene {
             }
         }
         
-        self.addEntity(button)
+        addEntity(button)
     }
     
     private func quitButtonPressed() {
@@ -132,7 +134,7 @@ extension EndScene {
     
 }
 
-// MARK: - Node Methods
+// MARK: - Environment Entities
 
 extension EndScene {
     

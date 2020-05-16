@@ -31,6 +31,8 @@ extension StartScene {
         configurePlayButton()
         configurePurchaseButton()
         configureRestoreButton()
+        
+        // Размещаем дополнительные элементы окружения
         configurePlayerA()
         configurePlayerB()
         configureBall()
@@ -76,7 +78,7 @@ extension StartScene {
             }
         }
         
-        self.addEntity(button)
+        addEntity(button)
     }
     
     private func playButtonPressed() {
@@ -109,7 +111,7 @@ extension StartScene {
             }
         }
         
-        self.addEntity(button)
+        addEntity(button)
     }
     
     private func purchaseButtonPressed() {}
@@ -131,14 +133,14 @@ extension StartScene {
             }
         }
         
-        self.addEntity(button)
+        addEntity(button)
     }
     
     private func restoreButtonPressed() {}
     
 }
 
-// MARK: - Node Methods
+// MARK: - Environment Entities
 
 extension StartScene {
     
