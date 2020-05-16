@@ -30,6 +30,19 @@ class Button: GKEntity {
         addComponent(label)
     }
     
+    init(texture: SKTexture, size: CGSize) {
+        super.init()
+        
+        let node = NodeComponent()
+        addComponent(node)
+        
+        let sprite = SpriteComponent(texture: texture, size: size)
+        addComponent(sprite)
+        
+        let label = LabelComponent(fontName: "SFProText-Medium", fontSize: 17)
+        addComponent(label)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

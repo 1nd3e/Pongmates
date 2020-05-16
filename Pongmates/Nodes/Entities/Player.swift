@@ -40,4 +40,12 @@ class Player: GKEntity {
         }
     }
     
+    func rotate(byAngle angle: CGFloat, withDuration time: TimeInterval) {
+        if let node = component(ofType: NodeComponent.self)?.node {
+            let rotate = SKAction.rotate(byAngle: angle, duration: time)
+            
+            node.run(rotate)
+        }
+    }
+    
 }

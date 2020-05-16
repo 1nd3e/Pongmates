@@ -11,6 +11,9 @@ import GameplayKit
 
 class EndScene: SKScene {
     
+    var playerARacket: Racket!
+    var playerBRacket: Racket!
+    
     private var playerA: Player!
     private var playerB: Player!
     private var ball: Ball!
@@ -83,6 +86,9 @@ extension EndScene {
             if let sceneNode = scene.rootNode as? GameScene {
                 sceneNode.size = self.size
                 
+                sceneNode.playerARacket = playerARacket
+                sceneNode.playerBRacket = playerBRacket
+                
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false
                 
@@ -131,8 +137,22 @@ extension EndScene {
 extension EndScene {
     
     private func configurePlayerA() {
-        let size = CGSize(width: 80, height: 16)
-        let color = SKColor(red: 0.33, green: 0.09, blue: 0.32, alpha: 1.00)
+        var size = CGSize(width: 80, height: 16)
+        var color = SKColor(red: 0.33, green: 0.09, blue: 0.32, alpha: 1.00)
+        
+        switch playerARacket {
+        case .nimbler:
+            size = CGSize(width: 80, height: 16)
+            color = SKColor(red: 0.33, green: 0.09, blue: 0.32, alpha: 1.00)
+        case .keeper:
+            size = CGSize(width: 160, height: 16)
+            color = SKColor(red: 0.22, green: 0.10, blue: 0.45, alpha: 1.00)
+        case .winger:
+            size = CGSize(width: 120, height: 16)
+            color = SKColor(red: 0.50, green: 0.38, blue: 0.01, alpha: 1.00)
+        default:
+            break
+        }
         
         playerA = Player(size: size, color: color)
         
@@ -145,8 +165,22 @@ extension EndScene {
     }
     
     private func configurePlayerB() {
-        let size = CGSize(width: 160, height: 16)
-        let color = SKColor(red: 0.22, green: 0.10, blue: 0.45, alpha: 1.00)
+        var size = CGSize(width: 80, height: 16)
+        var color = SKColor(red: 0.22, green: 0.10, blue: 0.45, alpha: 1.00)
+        
+        switch playerBRacket {
+        case .nimbler:
+            size = CGSize(width: 80, height: 16)
+            color = SKColor(red: 0.33, green: 0.09, blue: 0.32, alpha: 1.00)
+        case .keeper:
+            size = CGSize(width: 160, height: 16)
+            color = SKColor(red: 0.22, green: 0.10, blue: 0.45, alpha: 1.00)
+        case .winger:
+            size = CGSize(width: 120, height: 16)
+            color = SKColor(red: 0.50, green: 0.38, blue: 0.01, alpha: 1.00)
+        default:
+            break
+        }
         
         playerB = Player(size: size, color: color)
         

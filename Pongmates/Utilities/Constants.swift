@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum Racket {
+    case nimbler, keeper, winger
+}
+
 enum PlayerType {
     case playerA, playerB
 }

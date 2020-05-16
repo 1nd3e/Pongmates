@@ -11,6 +11,9 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    var playerARacket: Racket!
+    var playerBRacket: Racket!
+    
     private var playerA: Player!
     private var playerAScoreLabel: Label!
     private var playerB: Player!
@@ -67,8 +70,22 @@ extension GameScene {
 extension GameScene {
     
     private func configurePlayerA() {
-        let size = CGSize(width: 80, height: 16)
-        let color = SKColor(red: 0.91, green: 0.12, blue: 0.39, alpha: 1.00)
+        var size = CGSize(width: 80, height: 16)
+        var color = SKColor(red: 0.91, green: 0.12, blue: 0.39, alpha: 1.00)
+        
+        switch playerARacket {
+        case .nimbler:
+            size = CGSize(width: 80, height: 16)
+            color = SKColor(red: 0.91, green: 0.12, blue: 0.39, alpha: 1.00)
+        case .keeper:
+            size = CGSize(width: 160, height: 16)
+            color = SKColor(red: 0.49, green: 0.30, blue: 1.00, alpha: 1.00)
+        case .winger:
+            size = CGSize(width: 120, height: 16)
+            color = SKColor(red: 1.00, green: 0.76, blue: 0.03, alpha: 1.00)
+        default:
+            break
+        }
         
         playerA = Player(size: size, color: color)
         
@@ -117,8 +134,22 @@ extension GameScene {
     }
     
     private func configurePlayerB() {
-        let size = CGSize(width: 160, height: 16)
-        let color = SKColor(red: 0.49, green: 0.30, blue: 1.00, alpha: 1.00)
+        var size = CGSize(width: 80, height: 16)
+        var color = SKColor(red: 0.91, green: 0.12, blue: 0.39, alpha: 1.00)
+        
+        switch playerBRacket {
+        case .nimbler:
+            size = CGSize(width: 80, height: 16)
+            color = SKColor(red: 0.91, green: 0.12, blue: 0.39, alpha: 1.00)
+        case .keeper:
+            size = CGSize(width: 160, height: 16)
+            color = SKColor(red: 0.49, green: 0.30, blue: 1.00, alpha: 1.00)
+        case .winger:
+            size = CGSize(width: 120, height: 16)
+            color = SKColor(red: 1.00, green: 0.76, blue: 0.03, alpha: 1.00)
+        default:
+            break
+        }
         
         playerB = Player(size: size, color: color)
         
@@ -226,6 +257,9 @@ extension GameScene {
             if let sceneNode = scene.rootNode as? EndScene {
                 sceneNode.size = self.size
                 
+                sceneNode.playerARacket = playerARacket
+                sceneNode.playerBRacket = playerBRacket
+                
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false
                 
@@ -262,14 +296,65 @@ extension GameScene {
 
 extension GameScene {
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch in touches {
+            let location = touch.location(in: self)
+            let tapCount = touch.tapCount
+            
+            if tapCount >= 2 {
+                if location.y < 0 {
+                    switch playerARacket {
+                    case .winger:
+                        if location.x < 0 {
+                            playerA.rotate(byAngle: -CGFloat.pi, withDuration: 0.125)
+                        } else {
+                            playerA.rotate(byAngle: CGFloat.pi, withDuration: 0.125)
+                        }
+                    default:
+                        break
+                    }
+                } else {
+                    switch playerBRacket {
+                    case .winger:
+                        if location.x > 0 {
+                            playerB.rotate(byAngle: -CGFloat.pi, withDuration: 0.125)
+                        } else {
+                            playerB.rotate(byAngle: CGFloat.pi, withDuration: 0.125)
+                        }
+                    default:
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             let location = touch.location(in: self)
             
             if location.y < 0 {
-                playerA.move(to: location.x, withDuration: 0.05)
+                switch playerARacket {
+                case .nimbler:
+                    playerA.move(to: location.x, withDuration: 0.05)
+                case .keeper:
+                    playerA.move(to: location.x, withDuration: 0.30)
+                case .winger:
+                    playerA.move(to: location.x, withDuration: 0.15)
+                default:
+                    break
+                }
             } else {
-                playerB.move(to: location.x, withDuration: 0.25)
+                switch playerBRacket {
+                case .nimbler:
+                    playerB.move(to: location.x, withDuration: 0.05)
+                case .keeper:
+                    playerB.move(to: location.x, withDuration: 0.30)
+                case .winger:
+                    playerB.move(to: location.x, withDuration: 0.15)
+                default:
+                    break
+                }
             }
         }
     }

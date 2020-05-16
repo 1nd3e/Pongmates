@@ -11,6 +11,11 @@
 		783C9BB8246ED53C00713072 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783C9BB7246ED53C00713072 /* Button.swift */; };
 		78BC39A3246F3A2000958D3E /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A2246F3A2000958D3E /* EndScene.sks */; };
 		78BC39A5246F3A4F00958D3E /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39A4246F3A4F00958D3E /* EndScene.swift */; };
+		78BC39A7246F469F00958D3E /* PickerAScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A6246F469F00958D3E /* PickerAScene.sks */; };
+		78BC39A9246F46DA00958D3E /* PickerAScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39A8246F46DA00958D3E /* PickerAScene.swift */; };
+		78BC39AB246F49E600958D3E /* SpriteComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39AA246F49E600958D3E /* SpriteComponent.swift */; };
+		78BC39AD246F5B6000958D3E /* PickerBScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39AC246F5B6000958D3E /* PickerBScene.sks */; };
+		78BC39AF246F5B6C00958D3E /* PickerBScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39AE246F5B6C00958D3E /* PickerBScene.swift */; };
 		78DFDAB8246C5B3A00400F8C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFDAB7246C5B3A00400F8C /* AppDelegate.swift */; };
 		78DFDABA246C5B3A00400F8C /* StartScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78DFDAB9246C5B3A00400F8C /* StartScene.sks */; };
 		78DFDABE246C5B3A00400F8C /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78DFDABD246C5B3A00400F8C /* StartScene.swift */; };
@@ -37,6 +42,11 @@
 		783C9BB7246ED53C00713072 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		78BC39A2246F3A2000958D3E /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
 		78BC39A4246F3A4F00958D3E /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
+		78BC39A6246F469F00958D3E /* PickerAScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PickerAScene.sks; sourceTree = "<group>"; };
+		78BC39A8246F46DA00958D3E /* PickerAScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerAScene.swift; sourceTree = "<group>"; };
+		78BC39AA246F49E600958D3E /* SpriteComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteComponent.swift; sourceTree = "<group>"; };
+		78BC39AC246F5B6000958D3E /* PickerBScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PickerBScene.sks; sourceTree = "<group>"; };
+		78BC39AE246F5B6C00958D3E /* PickerBScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerBScene.swift; sourceTree = "<group>"; };
 		78DFDAB4246C5B3A00400F8C /* Pongmates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pongmates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78DFDAB7246C5B3A00400F8C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78DFDAB9246C5B3A00400F8C /* StartScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartScene.sks; sourceTree = "<group>"; };
@@ -87,6 +97,7 @@
 			children = (
 				783C9BB5246ED0E400713072 /* NodeComponent.swift */,
 				78F7822D246ED69E00767DCF /* ShapeComponent.swift */,
+				78BC39AA246F49E600958D3E /* SpriteComponent.swift */,
 				78F78238246EE27900767DCF /* PhysicsBodyComponent.swift */,
 				78F7822B246ED60100767DCF /* LabelComponent.swift */,
 			);
@@ -145,6 +156,10 @@
 			children = (
 				78DFDAB9246C5B3A00400F8C /* StartScene.sks */,
 				78DFDABD246C5B3A00400F8C /* StartScene.swift */,
+				78BC39A6246F469F00958D3E /* PickerAScene.sks */,
+				78BC39A8246F46DA00958D3E /* PickerAScene.swift */,
+				78BC39AC246F5B6000958D3E /* PickerBScene.sks */,
+				78BC39AE246F5B6C00958D3E /* PickerBScene.swift */,
 				78F78232246EE17800767DCF /* GameScene.sks */,
 				78F78234246EE18400767DCF /* GameScene.swift */,
 				78BC39A2246F3A2000958D3E /* EndScene.sks */,
@@ -259,10 +274,12 @@
 				78BC39A3246F3A2000958D3E /* EndScene.sks in Resources */,
 				78DFDAC3246C5B3A00400F8C /* Main.storyboard in Resources */,
 				78DFDABA246C5B3A00400F8C /* StartScene.sks in Resources */,
+				78BC39AD246F5B6000958D3E /* PickerBScene.sks in Resources */,
 				78F7823F246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf in Resources */,
 				78DFDAC5246C5B3C00400F8C /* Assets.xcassets in Resources */,
 				78F78233246EE17800767DCF /* GameScene.sks in Resources */,
 				78F78231246EDC8600767DCF /* SF-Pro-Text-Medium.otf in Resources */,
+				78BC39A7246F469F00958D3E /* PickerAScene.sks in Resources */,
 				78DFDAC8246C5B3C00400F8C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +300,10 @@
 				78F78241246F11EF00767DCF /* Hole.swift in Sources */,
 				78F7822C246ED60100767DCF /* LabelComponent.swift in Sources */,
 				78DFDAC0246C5B3A00400F8C /* GameViewController.swift in Sources */,
+				78BC39AB246F49E600958D3E /* SpriteComponent.swift in Sources */,
 				78BC39A5246F3A4F00958D3E /* EndScene.swift in Sources */,
+				78BC39AF246F5B6C00958D3E /* PickerBScene.swift in Sources */,
+				78BC39A9246F46DA00958D3E /* PickerAScene.swift in Sources */,
 				78F78239246EE27900767DCF /* PhysicsBodyComponent.swift in Sources */,
 				78F7822E246ED69E00767DCF /* ShapeComponent.swift in Sources */,
 				78DFDAB8246C5B3A00400F8C /* AppDelegate.swift in Sources */,
