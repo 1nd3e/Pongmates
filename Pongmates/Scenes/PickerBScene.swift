@@ -12,7 +12,6 @@ import GameplayKit
 class PickerBScene: SKScene {
     
     var selectedRacketA: RacketType!
-    var selectedRacketB: RacketType!
     
     private var racketA: Player!
     private var racketB: Player!
@@ -25,6 +24,13 @@ class PickerBScene: SKScene {
 // MARK: - Scene Events
 
 extension PickerBScene {
+    
+    override func sceneDidLoad() {
+        // Берём на себя ответственность за обработку событий показа рекламы
+        AdMob.shared.delegate = self
+        // Предварительно загружаем рекламный ролик
+        AdMob.shared.loadRewardedAd()
+    }
     
     override func didMove(to view: SKView) {
         // Размещаем элементы интерфейса
@@ -169,13 +175,11 @@ extension PickerBScene {
     
     private func racketAButtonPressed() {
         if let scene = GKScene(fileNamed: "GameScene") {
-            selectedRacketB = .nimbler
-            
             if let sceneNode = scene.rootNode as? GameScene {
                 sceneNode.size = self.size
                 
                 sceneNode.playerARacket = selectedRacketA
-                sceneNode.playerBRacket = selectedRacketB
+                sceneNode.playerBRacket = .nimbler
                 
                 let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
                 sceneTransition.pausesOutgoingScene = false
@@ -235,21 +239,7 @@ extension PickerBScene {
     }
     
     private func racketBButtonPressed() {
-        if let scene = GKScene(fileNamed: "GameScene") {
-            selectedRacketB = .keeper
-            
-            if let sceneNode = scene.rootNode as? GameScene {
-                sceneNode.size = self.size
-                
-                sceneNode.playerARacket = selectedRacketA
-                sceneNode.playerBRacket = selectedRacketB
-                
-                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
-                sceneTransition.pausesOutgoingScene = false
-                
-                view?.presentScene(sceneNode, transition: sceneTransition)
-            }
-        }
+        AdMob.shared.showRewardedAd(forRacket: .keeper)
     }
     
     private func configureRacketC() {
@@ -309,21 +299,7 @@ extension PickerBScene {
     }
     
     private func racketCButtonPressed() {
-        if let scene = GKScene(fileNamed: "GameScene") {
-            selectedRacketB = .winger
-            
-            if let sceneNode = scene.rootNode as? GameScene {
-                sceneNode.size = self.size
-                
-                sceneNode.playerARacket = selectedRacketA
-                sceneNode.playerBRacket = selectedRacketB
-                
-                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
-                sceneTransition.pausesOutgoingScene = false
-                
-                view?.presentScene(sceneNode, transition: sceneTransition)
-            }
-        }
+        AdMob.shared.showRewardedAd(forRacket: .winger)
     }
     
 }
@@ -371,6 +347,32 @@ extension PickerBScene {
                 }
             }
         }
+    }
+    
+}
+
+// MARK: - AdMobDelegate
+
+extension PickerBScene: AdMobDelegate {
+    
+    func userDidEarnReward(racket: RacketType) {
+        if let scene = GKScene(fileNamed: "GameScene") {
+            if let sceneNode = scene.rootNode as? GameScene {
+                sceneNode.size = self.size
+                
+                sceneNode.playerARacket = selectedRacketA
+                sceneNode.playerBRacket = racket
+                
+                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
+                sceneTransition.pausesOutgoingScene = false
+                
+                view?.presentScene(sceneNode, transition: sceneTransition)
+            }
+        }
+    }
+    
+    func rewardedAdDidDismiss() {
+        AdMob.shared.loadRewardedAd()
     }
     
 }

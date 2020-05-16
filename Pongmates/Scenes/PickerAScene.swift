@@ -23,6 +23,13 @@ class PickerAScene: SKScene {
 
 extension PickerAScene {
     
+    override func sceneDidLoad() {
+        // Берём на себя ответственность за обработку событий показа рекламы
+        AdMob.shared.delegate = self
+        // Предварительно загружаем рекламный ролик
+        AdMob.shared.loadRewardedAd()
+    }
+    
     override func didMove(to view: SKView) {
         // Размещаем элементы интерфейса
         configureTitleLabel()
@@ -221,17 +228,7 @@ extension PickerAScene {
     }
     
     private func racketBButtonPressed() {
-        if let scene = GKScene(fileNamed: "PickerBScene") {
-            if let sceneNode = scene.rootNode as? PickerBScene {
-                sceneNode.size = self.size
-                sceneNode.selectedRacketA = .keeper
-                
-                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
-                sceneTransition.pausesOutgoingScene = false
-                
-                view?.presentScene(sceneNode, transition: sceneTransition)
-            }
-        }
+        AdMob.shared.showRewardedAd(forRacket: .keeper)
     }
     
     private func configureRacketC() {
@@ -289,17 +286,7 @@ extension PickerAScene {
     }
     
     private func racketCButtonPressed() {
-        if let scene = GKScene(fileNamed: "PickerBScene") {
-            if let sceneNode = scene.rootNode as? PickerBScene {
-                sceneNode.size = self.size
-                sceneNode.selectedRacketA = .winger
-                
-                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
-                sceneTransition.pausesOutgoingScene = false
-                
-                view?.presentScene(sceneNode, transition: sceneTransition)
-            }
-        }
+        AdMob.shared.showRewardedAd(forRacket: .winger)
     }
     
 }
@@ -347,6 +334,30 @@ extension PickerAScene {
                 }
             }
         }
+    }
+    
+}
+
+// MARK: - AdMobDelegate
+
+extension PickerAScene: AdMobDelegate {
+    
+    func userDidEarnReward(racket: RacketType) {
+        if let scene = GKScene(fileNamed: "PickerBScene") {
+            if let sceneNode = scene.rootNode as? PickerBScene {
+                sceneNode.size = self.size
+                sceneNode.selectedRacketA = racket
+                
+                let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
+                sceneTransition.pausesOutgoingScene = false
+                
+                view?.presentScene(sceneNode, transition: sceneTransition)
+            }
+        }
+    }
+    
+    func rewardedAdDidDismiss() {
+        AdMob.shared.loadRewardedAd()
     }
     
 }
