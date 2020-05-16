@@ -35,6 +35,9 @@ extension GameScene {
         // Настраиваем параметры сцены игры
         setupPhysics()
         
+        // Подготавливаем аудио-плеер
+        prepareAudioPlayer()
+        
         // Размещаем элементы игры
         configurePlayerA()
         configurePlayerAScoreLabel()
@@ -217,6 +220,21 @@ extension GameScene {
     
 }
 
+// MARK: - SFX Methods
+
+extension GameScene {
+    
+    private func play(soundFileNamed soundFile: String) {
+        let playSoundFileNamed = SKAction.playSoundFileNamed(soundFile, waitForCompletion: false)
+        run(playSoundFileNamed)
+    }
+    
+    private func prepareAudioPlayer() {
+        play(soundFileNamed: "audio-silence.wav")
+    }
+    
+}
+
 // MARK: - Gameplay Methods
 
 extension GameScene {
@@ -381,10 +399,14 @@ extension GameScene: SKPhysicsContactDelegate {
                 self.run(.wait(forDuration: 2.0)) {
                     self.finishMatch()
                 }
+                
+                play(soundFileNamed: "audio-bleep-down.wav")
             } else {
                 self.run(.wait(forDuration: 0.5)) {
                     self.replayMatch(winner: .playerB)
                 }
+                
+                play(soundFileNamed: "audio-bleep-down.wav")
             }
             
             ball.resetVelocity()
@@ -396,10 +418,14 @@ extension GameScene: SKPhysicsContactDelegate {
                 self.run(.wait(forDuration: 2.0)) {
                     self.finishMatch()
                 }
+                
+                play(soundFileNamed: "audio-bleep-up.wav")
             } else {
                 self.run(.wait(forDuration: 0.5)) {
                     self.replayMatch(winner: .playerA)
                 }
+                
+                play(soundFileNamed: "audio-bleep-up.wav")
             }
             
             ball.resetVelocity()

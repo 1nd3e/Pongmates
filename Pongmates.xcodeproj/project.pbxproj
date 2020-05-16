@@ -14,6 +14,11 @@
 		787A3DE12470162C00BDB58D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787A3DE02470162C00BDB58D /* StoreKit.framework */; };
 		787A3DE32470180900BDB58D /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A3DE22470180900BDB58D /* Defaults.swift */; };
 		787A3DE5247023BD00BDB58D /* SKReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A3DE4247023BD00BDB58D /* SKReview.swift */; };
+		787A3DE824702AFD00BDB58D /* audio-music.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787A3DE724702AFD00BDB58D /* audio-music.wav */; };
+		787A3DEA24702B0C00BDB58D /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787A3DE924702B0C00BDB58D /* AudioPlayer.swift */; };
+		787A3DEC2470301500BDB58D /* audio-bleep-down.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787A3DEB2470301500BDB58D /* audio-bleep-down.wav */; };
+		787A3DEE2470320500BDB58D /* audio-silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787A3DED2470320500BDB58D /* audio-silence.wav */; };
+		787A3DF02470339E00BDB58D /* audio-bleep-up.wav in Resources */ = {isa = PBXBuildFile; fileRef = 787A3DEF2470339E00BDB58D /* audio-bleep-up.wav */; };
 		78BC39A3246F3A2000958D3E /* EndScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A2246F3A2000958D3E /* EndScene.sks */; };
 		78BC39A5246F3A4F00958D3E /* EndScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BC39A4246F3A4F00958D3E /* EndScene.swift */; };
 		78BC39A7246F469F00958D3E /* PickerAScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 78BC39A6246F469F00958D3E /* PickerAScene.sks */; };
@@ -53,6 +58,11 @@
 		787A3DE02470162C00BDB58D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		787A3DE22470180900BDB58D /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		787A3DE4247023BD00BDB58D /* SKReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReview.swift; sourceTree = "<group>"; };
+		787A3DE724702AFD00BDB58D /* audio-music.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "audio-music.wav"; sourceTree = "<group>"; };
+		787A3DE924702B0C00BDB58D /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
+		787A3DEB2470301500BDB58D /* audio-bleep-down.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "audio-bleep-down.wav"; sourceTree = "<group>"; };
+		787A3DED2470320500BDB58D /* audio-silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "audio-silence.wav"; sourceTree = "<group>"; };
+		787A3DEF2470339E00BDB58D /* audio-bleep-up.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "audio-bleep-up.wav"; sourceTree = "<group>"; };
 		78BC39A2246F3A2000958D3E /* EndScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = EndScene.sks; sourceTree = "<group>"; };
 		78BC39A4246F3A4F00958D3E /* EndScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScene.swift; sourceTree = "<group>"; };
 		78BC39A6246F469F00958D3E /* PickerAScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PickerAScene.sks; sourceTree = "<group>"; };
@@ -138,6 +148,17 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		787A3DE624702AEB00BDB58D /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				787A3DED2470320500BDB58D /* audio-silence.wav */,
+				787A3DEF2470339E00BDB58D /* audio-bleep-up.wav */,
+				787A3DEB2470301500BDB58D /* audio-bleep-down.wav */,
+				787A3DE724702AFD00BDB58D /* audio-music.wav */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		78DFDAAB246C5B3900400F8C = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +231,7 @@
 				787A3DDC24700C6D00BDB58D /* AdMob.swift */,
 				787A3DDE2470161A00BDB58D /* IAPService.swift */,
 				787A3DE4247023BD00BDB58D /* SKReview.swift */,
+				787A3DE924702B0C00BDB58D /* AudioPlayer.swift */,
 				787A3DE22470180900BDB58D /* Defaults.swift */,
 				78F78242246F184900767DCF /* Constants.swift */,
 			);
@@ -219,6 +241,7 @@
 		78DFDAD3246C5C9400400F8C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				787A3DE624702AEB00BDB58D /* Music */,
 				78F7822F246EDC5C00767DCF /* Fonts */,
 				78DFDAC1246C5B3A00400F8C /* Main.storyboard */,
 				78DFDAC4246C5B3C00400F8C /* Assets.xcassets */,
@@ -317,11 +340,15 @@
 				78DFDAC3246C5B3A00400F8C /* Main.storyboard in Resources */,
 				78DFDABA246C5B3A00400F8C /* StartScene.sks in Resources */,
 				78BC39AD246F5B6000958D3E /* PickerBScene.sks in Resources */,
+				787A3DEE2470320500BDB58D /* audio-silence.wav in Resources */,
 				78F7823F246F05CB00767DCF /* SF-Pro-Display-Ultralight.otf in Resources */,
 				78DFDAC5246C5B3C00400F8C /* Assets.xcassets in Resources */,
 				78F78233246EE17800767DCF /* GameScene.sks in Resources */,
+				787A3DE824702AFD00BDB58D /* audio-music.wav in Resources */,
 				78F78231246EDC8600767DCF /* SF-Pro-Text-Medium.otf in Resources */,
 				78BC39A7246F469F00958D3E /* PickerAScene.sks in Resources */,
+				787A3DF02470339E00BDB58D /* audio-bleep-up.wav in Resources */,
+				787A3DEC2470301500BDB58D /* audio-bleep-down.wav in Resources */,
 				78DFDAC8246C5B3C00400F8C /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -381,6 +408,7 @@
 				78F78243246F184900767DCF /* Constants.swift in Sources */,
 				783C9BB8246ED53C00713072 /* Button.swift in Sources */,
 				78DFDABE246C5B3A00400F8C /* StartScene.swift in Sources */,
+				787A3DEA24702B0C00BDB58D /* AudioPlayer.swift in Sources */,
 				787A3DDF2470161A00BDB58D /* IAPService.swift in Sources */,
 				787A3DE5247023BD00BDB58D /* SKReview.swift in Sources */,
 				78F78241246F11EF00767DCF /* Hole.swift in Sources */,

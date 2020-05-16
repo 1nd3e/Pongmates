@@ -27,6 +27,8 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        
+        AudioPlayer.shared.play(fileNamed: "audio-music", ofType: ".wav")
     }
     
 }
