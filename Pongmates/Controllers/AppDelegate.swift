@@ -15,8 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AdMob.shared.start()
+        IAPService.shared.addObserver()
         
         return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        IAPService.shared.removeObserver()
     }
 
 }

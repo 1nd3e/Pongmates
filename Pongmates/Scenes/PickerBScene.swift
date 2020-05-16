@@ -19,6 +19,10 @@ class PickerBScene: SKScene {
     
     private var entities = Set<GKEntity>()
     
+    private var adsDisabled: Bool {
+        return Defaults.shared.adsDisabled
+    }
+    
 }
 
 // MARK: - Scene Events
@@ -26,10 +30,11 @@ class PickerBScene: SKScene {
 extension PickerBScene {
     
     override func sceneDidLoad() {
-        // Берём на себя ответственность за обработку событий показа рекламы
         AdMob.shared.delegate = self
-        // Предварительно загружаем рекламный ролик
-        AdMob.shared.loadRewardedAd()
+        
+        if adsDisabled == false {
+            AdMob.shared.loadRewardedAd()
+        }
     }
     
     override func didMove(to view: SKView) {
@@ -228,10 +233,15 @@ extension PickerBScene {
             node.position = CGPoint(x: frame.midX, y: frame.midY + 24)
             node.zPosition = 1
             node.zRotation = .pi
+        }
+        
+        if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+            labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             
-            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+            if adsDisabled {
+                labelNode.text = "Pick"
+            } else {
                 labelNode.text = "Watch Ads"
-                labelNode.fontColor = SKColor(red: 1.00, green: 1.00, blue: 1.00, alpha: 1.00)
             }
         }
         
@@ -239,7 +249,23 @@ extension PickerBScene {
     }
     
     private func racketBButtonPressed() {
-        AdMob.shared.showRewardedAd(forRacket: .keeper)
+        if adsDisabled {
+            if let scene = GKScene(fileNamed: "GameScene") {
+                if let sceneNode = scene.rootNode as? GameScene {
+                    sceneNode.size = self.size
+                    
+                    sceneNode.playerARacket = selectedRacketA
+                    sceneNode.playerBRacket = .keeper
+                    
+                    let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
+                    sceneTransition.pausesOutgoingScene = false
+                    
+                    view?.presentScene(sceneNode, transition: sceneTransition)
+                }
+            }
+        } else {
+            AdMob.shared.showRewardedAd(forRacket: .keeper)
+        }
     }
     
     private func configureRacketC() {
@@ -288,10 +314,15 @@ extension PickerBScene {
             node.position = CGPoint(x: frame.midX, y: frame.midY + 152)
             node.zPosition = 1
             node.zRotation = .pi
+        }
+        
+        if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+            labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
-            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
+            if adsDisabled {
+                labelNode.text = "Pick"
+            } else {
                 labelNode.text = "Watch Ads"
-                labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             }
         }
         
@@ -299,7 +330,23 @@ extension PickerBScene {
     }
     
     private func racketCButtonPressed() {
-        AdMob.shared.showRewardedAd(forRacket: .winger)
+        if adsDisabled {
+            if let scene = GKScene(fileNamed: "GameScene") {
+                if let sceneNode = scene.rootNode as? GameScene {
+                    sceneNode.size = self.size
+                    
+                    sceneNode.playerARacket = selectedRacketA
+                    sceneNode.playerBRacket = .winger
+                    
+                    let sceneTransition = SKTransition.fade(with: SKColor(red: 0.29, green: 0.08, blue: 0.55, alpha: 1.00), duration: 0.5)
+                    sceneTransition.pausesOutgoingScene = false
+                    
+                    view?.presentScene(sceneNode, transition: sceneTransition)
+                }
+            }
+        } else {
+            AdMob.shared.showRewardedAd(forRacket: .winger)
+        }
     }
     
 }

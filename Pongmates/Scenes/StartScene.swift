@@ -11,17 +11,28 @@ import GameplayKit
 
 class StartScene: SKScene {
     
+    private var purchaseButton: Button!
+    private var restoreButton: Button!
+    
     private var playerA: Player!
     private var playerB: Player!
     private var ball: Ball!
     
     private var entities = Set<GKEntity>()
     
+    private var adsDisabled: Bool {
+        return Defaults.shared.adsDisabled
+    }
+    
 }
 
 // MARK: - Scene Events
 
 extension StartScene {
+    
+    override func sceneDidLoad() {
+        IAPService.shared.delegate = self
+    }
     
     override func didMove(to view: SKView) {
         // Настраиваем параметры сцены игры
@@ -98,45 +109,79 @@ extension StartScene {
         let size = CGSize(width: 224, height: 48)
         let color = SKColor(red: 1.00, green: 0.76, blue: 0.03, alpha: 1.00)
         
-        let button = Button(size: size, color: color)
-        button.name = "Remove Ads"
+        purchaseButton = Button(size: size, color: color)
+        purchaseButton.name = "Remove Ads"
         
-        if let node = button.component(ofType: NodeComponent.self)?.node {
+        if let node = purchaseButton.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.midY)
             node.zPosition = 1
+        }
+        
+        if let labelNode = purchaseButton.component(ofType: LabelComponent.self)?.node {
+            labelNode.text = "Remove Ads"
+            labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
-            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Remove Ads"
-                labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
+            if adsDisabled {
+                labelNode.alpha = 0.25
             }
         }
         
-        addEntity(button)
+        addEntity(purchaseButton)
     }
     
-    private func purchaseButtonPressed() {}
+    private func disablePurchaseButton() {
+        let fadeAlpha = SKAction.fadeAlpha(to: 0.25, duration: 0.4)
+        fadeAlpha.timingMode = .easeInEaseOut
+        
+        if let labelNode = purchaseButton.component(ofType: LabelComponent.self)?.node {
+            labelNode.run(fadeAlpha)
+        }
+    }
+    
+    private func purchaseButtonPressed() {
+        if adsDisabled == false {
+            IAPService.shared.removeAds()
+        }
+    }
     
     private func configureRestoreButton() {
         let size = CGSize(width: 224, height: 48)
         let color = SKColor(red: 1.00, green: 0.76, blue: 0.03, alpha: 1.00)
         
-        let button = Button(size: size, color: color)
-        button.name = "Restore Purchases"
+        restoreButton = Button(size: size, color: color)
+        restoreButton.name = "Restore Purchases"
         
-        if let node = button.component(ofType: NodeComponent.self)?.node {
+        if let node = restoreButton.component(ofType: NodeComponent.self)?.node {
             node.position = CGPoint(x: frame.midX, y: frame.midY - 64)
             node.zPosition = 1
+        }
+        
+        if let labelNode = restoreButton.component(ofType: LabelComponent.self)?.node {
+            labelNode.text = "Restore Purchases"
+            labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
             
-            if let labelNode = button.component(ofType: LabelComponent.self)?.node {
-                labelNode.text = "Restore Purchases"
-                labelNode.fontColor = SKColor(red: 0.14, green: 0.04, blue: 0.27, alpha: 1.00)
+            if adsDisabled {
+                labelNode.alpha = 0.25
             }
         }
         
-        addEntity(button)
+        addEntity(restoreButton)
     }
     
-    private func restoreButtonPressed() {}
+    private func disableRestoreButton() {
+        let fadeAlpha = SKAction.fadeAlpha(to: 0.25, duration: 0.4)
+        fadeAlpha.timingMode = .easeInEaseOut
+        
+        if let labelNode = restoreButton.component(ofType: LabelComponent.self)?.node {
+            labelNode.run(fadeAlpha)
+        }
+    }
+    
+    private func restoreButtonPressed() {
+        if adsDisabled == false {
+            IAPService.shared.restorePurchases()
+        }
+    }
     
 }
 
@@ -226,6 +271,17 @@ extension StartScene {
                 }
             }
         }
+    }
+    
+}
+
+// MARK: - IAPServiceDelegate
+
+extension StartScene: IAPServiceDelegate {
+    
+    func adsDidDisabled() {
+        disablePurchaseButton()
+        disableRestoreButton()
     }
     
 }
