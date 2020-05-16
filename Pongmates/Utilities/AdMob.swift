@@ -39,7 +39,7 @@ class AdMob: NSObject {
     
     // Предварительно загружает рекламу за вознаграждение
     func loadRewardedAd() {
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3918999064618425/6716029234")
         
         rewardedAd?.load(GADRequest()) { error in
             if let error = error {
