@@ -34,6 +34,8 @@ class LabelComponent: GKComponent {
     // MARK: - Methods
     
     override func didAddToEntity() {
+        node.entity = entity
+        
         if let node = entity?.component(ofType: NodeComponent.self)?.node {
             node.addChild(self.node)
         }

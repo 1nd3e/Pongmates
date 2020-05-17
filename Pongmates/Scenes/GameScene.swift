@@ -320,7 +320,7 @@ extension GameScene {
             let location = touch.location(in: self)
             let tapCount = touch.tapCount
             
-            if tapCount >= 2 {
+            if tapCount == 2 {
                 if location.y < 0 {
                     switch playerARacket {
                     case .winger:
