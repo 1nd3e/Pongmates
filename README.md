@@ -26,11 +26,7 @@
 
 Pongmates is [available on the App Store](https://apps.apple.com/app/id1461716135). Requires iOS 11.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
-## License
-
-MIT
-
-© 2019-2020 Vladislav Kulikov
+## MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -49,3 +45,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+© 2019-2020 Vladislav Kulikov
