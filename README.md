@@ -1,6 +1,6 @@
 <h1 align="center">
   <a href="https://apps.apple.com/app/id1461716135">
-    <img width="80" src="https://clankbang.ru/assets/img/app_icons/pongmates__icon@2x.png" alt="Pongmates">
+    <img width="80" src="https://github.com/1nd3e/Pongmates/raw/master/logo.png" alt="Pongmates">
   </a>
   <br>
   Pongmates
@@ -13,7 +13,7 @@
   Release date: May 26, 2019.
 </p>
 
-![screenshot](https://ph-files.imgix.net/bbdcabec-7752-46c7-ad7b-7ff7dfe72b39?auto=format&auto=compress&codec=mozjpeg&cs=strip)
+![screenshot](https://github.com/1nd3e/Pongmates/raw/master/cover.png)
 
 ## Features
 
