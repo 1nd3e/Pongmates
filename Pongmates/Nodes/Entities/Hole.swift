@@ -11,6 +11,8 @@ import GameplayKit
 
 class Hole: GKEntity {
     
+    // MARK: - Initializers
+    
     init(size: CGSize) {
         super.init()
         

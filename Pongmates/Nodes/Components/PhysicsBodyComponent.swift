@@ -11,9 +11,11 @@ import GameplayKit
 
 class PhysicsBodyComponent: GKComponent {
     
-    // MARK: - Properties
+    // MARK: - Public Properties
     
     let physicsBody: SKPhysicsBody
+    
+    // MARK: - Private Properties
     
     private var isDynamic = true
     private var affectedByGravity = false

@@ -11,8 +11,12 @@ import GameplayKit
 
 class GameScene: SKScene {
     
+    // MARK: - Public Properties
+    
     var playerARacket: RacketType!
     var playerBRacket: RacketType!
+    
+    // MARK: - Private Properties
     
     private var playerA: Player!
     private var playerAScoreLabel: Label!
@@ -25,11 +29,7 @@ class GameScene: SKScene {
     
     private var entities = Set<GKEntity>()
     
-}
-
-// MARK: - Scene Events
-
-extension GameScene {
+    // MARK: - Scene Events
     
     override func didMove(to view: SKView) {
         // Scene configuration.
@@ -47,7 +47,7 @@ extension GameScene {
         configurePlayerBHole()
         configureBall()
         
-        // Game start.
+        // Start the game.
         ball.applyImpulse()
     }
     
@@ -316,6 +316,8 @@ extension GameScene {
 extension GameScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        
         for touch in touches {
             let location = touch.location(in: self)
             let tapCount = touch.tapCount
@@ -349,6 +351,8 @@ extension GameScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        
         for touch in touches {
             let location = touch.location(in: self)
             
@@ -397,14 +401,14 @@ extension GameScene: SKPhysicsContactDelegate {
             playerBScoreLabel.set(playerBScore)
             
             if playerBScore >= 15 {
-                self.run(.wait(forDuration: 2.0)) {
-                    self.finishMatch()
+                self.run(.wait(forDuration: 2.0)) { [weak self] in
+                    self?.finishMatch()
                 }
                 
                 play(soundFileNamed: "audio-bleep-down.wav")
             } else {
-                self.run(.wait(forDuration: 0.5)) {
-                    self.replayMatch(winner: .playerB)
+                self.run(.wait(forDuration: 0.5)) { [weak self] in
+                    self?.replayMatch(winner: .playerB)
                 }
                 
                 play(soundFileNamed: "audio-bleep-down.wav")
@@ -416,14 +420,14 @@ extension GameScene: SKPhysicsContactDelegate {
             playerAScoreLabel.set(playerAScore)
             
             if playerAScore >= 15 {
-                self.run(.wait(forDuration: 2.0)) {
-                    self.finishMatch()
+                self.run(.wait(forDuration: 2.0)) { [weak self] in
+                    self?.finishMatch()
                 }
                 
                 play(soundFileNamed: "audio-bleep-up.wav")
             } else {
-                self.run(.wait(forDuration: 0.5)) {
-                    self.replayMatch(winner: .playerA)
+                self.run(.wait(forDuration: 0.5)) { [weak self] in
+                    self?.replayMatch(winner: .playerA)
                 }
                 
                 play(soundFileNamed: "audio-bleep-up.wav")

@@ -11,8 +11,12 @@ import GameplayKit
 
 class EndScene: SKScene {
     
+    // MARK: - Public Properties
+    
     var playerARacket: RacketType!
     var playerBRacket: RacketType!
+    
+    // MARK: - Private Properties
     
     private var playerA: Player!
     private var playerB: Player!
@@ -20,11 +24,7 @@ class EndScene: SKScene {
     
     private var entities = Set<GKEntity>()
     
-}
-
-// MARK: - Scene Events
-
-extension EndScene {
+    // MARK: - Scene Events
     
     override func didMove(to view: SKView) {
         // Scene configuration.
@@ -239,6 +239,8 @@ extension EndScene {
 extension EndScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
         for touch in touches {
             let location = touch.location(in: self)
             let node = atPoint(location)

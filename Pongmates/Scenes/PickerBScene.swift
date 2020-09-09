@@ -11,7 +11,11 @@ import GameplayKit
 
 class PickerBScene: SKScene {
     
+    // MARK: - Public Properties
+    
     var selectedRacketA: RacketType!
+    
+    // MARK: - Private Properties
     
     private var racketA: Player!
     private var racketB: Player!
@@ -23,16 +27,14 @@ class PickerBScene: SKScene {
         return Defaults.shared.adsDisabled
     }
     
-}
-
-// MARK: - Scene Events
-
-extension PickerBScene {
+    // MARK: - Scene Events
     
     override func sceneDidLoad() {
+        // Take responsibility for handling advertising events.
         AdMob.shared.delegate = self
         
         if adsDisabled == false {
+            // Preload an ad video for getting an extra life.
             AdMob.shared.loadRewardedAd()
         }
     }
@@ -380,6 +382,8 @@ extension PickerBScene {
 extension PickerBScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
         for touch in touches {
             let location = touch.location(in: self)
             let node = atPoint(location)

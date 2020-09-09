@@ -11,9 +11,10 @@ import GameplayKit
 
 class StartScene: SKScene {
     
+    // MARK: - Properties
+    
     private var purchaseButton: Button!
     private var restoreButton: Button!
-    
     private var playerA: Player!
     private var playerB: Player!
     private var ball: Ball!
@@ -24,11 +25,7 @@ class StartScene: SKScene {
         return Defaults.shared.adsDisabled
     }
     
-}
-
-// MARK: - Scene Events
-
-extension StartScene {
+    // MARK: - Scene Events
     
     override func sceneDidLoad() {
         IAPService.shared.delegate = self
@@ -258,6 +255,8 @@ extension StartScene {
 extension StartScene {
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        
         for touch in touches {
             let location = touch.location(in: self)
             let node = atPoint(location)

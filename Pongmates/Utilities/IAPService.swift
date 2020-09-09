@@ -6,10 +6,9 @@
 //  Copyright © 2020 Vladislav Kulikov. All rights reserved.
 //
 
-import UIKit
 import StoreKit
 
-protocol IAPServiceDelegate {
+protocol IAPServiceDelegate: class {
     func adsDidDisabled()
 }
 
@@ -21,7 +20,7 @@ class IAPService: NSObject {
     
     // MARK: - Properties
     
-    var delegate: IAPServiceDelegate?
+    weak var delegate: IAPServiceDelegate?
     
     // MARK: - Methods
     

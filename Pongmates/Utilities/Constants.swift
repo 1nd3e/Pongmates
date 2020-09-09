@@ -6,7 +6,6 @@
 //  Copyright © 2020 Vladislav Kulikov. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 enum RacketType {
