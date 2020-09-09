@@ -35,20 +35,20 @@ extension StartScene {
     }
     
     override func didMove(to view: SKView) {
-        // Настраиваем параметры сцены игры
+        // Scene configuration.
         setupPhysics()
         
-        // Размещаем элементы интерфейса
+        // UI configuration.
         configurePlayButton()
         configurePurchaseButton()
         configureRestoreButton()
         
-        // Размещаем дополнительные элементы окружения
+        // Environment configuration.
         configurePlayerA()
         configurePlayerB()
         configureBall()
         
-        // Запускаем мяч
+        // Running an environment.
         ball.applyImpulse()
     }
     

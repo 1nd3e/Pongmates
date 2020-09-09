@@ -10,13 +10,14 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         AdMob.shared.start()
         IAPService.shared.addObserver()
         
+        // Count the application launches for requesting a review.
         Defaults.shared.applicationLaunches += 1
         
         return true
@@ -25,5 +26,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         IAPService.shared.removeObserver()
     }
-
+    
 }

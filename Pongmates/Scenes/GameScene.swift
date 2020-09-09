@@ -32,13 +32,13 @@ class GameScene: SKScene {
 extension GameScene {
     
     override func didMove(to view: SKView) {
-        // Настраиваем параметры сцены игры
+        // Scene configuration.
         setupPhysics()
         
-        // Подготавливаем аудио-плеер
+        // Preparing audio.
         prepareAudioPlayer()
         
-        // Размещаем элементы игры
+        // Nodes configuration.
         configurePlayerA()
         configurePlayerAScoreLabel()
         configurePlayerAHole()
@@ -47,7 +47,7 @@ extension GameScene {
         configurePlayerBHole()
         configureBall()
         
-        // Запускаем мяч
+        // Game start.
         ball.applyImpulse()
     }
     

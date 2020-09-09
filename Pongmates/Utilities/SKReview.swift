@@ -16,7 +16,7 @@ class SKReview {
     
     // MARK: - Methods
     
-    // Запрашивает отзыв
+    // Request a review.
     func requestReviewIfAppropriate() {
         let bundleVersionKey = kCFBundleVersionKey as String
         let bundleVersion = Bundle.main.object(forInfoDictionaryKey: bundleVersionKey) as? String

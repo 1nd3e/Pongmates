@@ -38,12 +38,10 @@ extension PickerBScene {
     }
     
     override func didMove(to view: SKView) {
-        // Размещаем элементы интерфейса
+        // UI configuration.
         configureTitleLabel()
         configureSubtitleLabel()
         configureRevertButton()
-        
-        // Размещаем ракетки
         configureRacketA()
         configureRacketAButton()
         configureRacketB()
@@ -51,7 +49,7 @@ extension PickerBScene {
         configureRacketC()
         configureRacketCButton()
         
-        // Запускаем анимации ракеток
+        // Start rackets animation.
         animateRacketA()
         animateRacketB()
         animateRacketC()

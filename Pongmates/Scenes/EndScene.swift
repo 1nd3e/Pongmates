@@ -27,22 +27,22 @@ class EndScene: SKScene {
 extension EndScene {
     
     override func didMove(to view: SKView) {
-        // Настраиваем параметры сцены игры
+        // Scene configuration.
         setupPhysics()
         
-        // Размещаем элементы интерфейса
+        // UI configuration.
         configureRestartButton()
         configureQuitButton()
         
-        // Размещаем дополнительные элементы окружения
+        // Environment configuration.
         configurePlayerA()
         configurePlayerB()
         configureBall()
         
-        // Запускаем мяч
+        // Running an environment.
         ball.applyImpulse()
         
-        // Пробуем отправить запрос оценки игры
+        // Trying to get a review from a user.
         SKReview.shared.requestReviewIfAppropriate()
     }
     
