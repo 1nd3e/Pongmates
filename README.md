@@ -21,7 +21,6 @@
 - SpriteKit
 - GameplayKit
 - Entity-Component System
-- Game Center
 - In‑App Purchases
 - Google AdMob
 
